@@ -22,6 +22,6 @@ class PostShorteningMiddleware implements MiddlewareInterface
 
     public function __invoke(Request $request, Response $response, callable $out = null)
     {
-        return new HtmlResponse($this->template->render('app::home-page'));
+        return new HtmlResponse($this->template->render('app::shortened'));
     }
 }

@@ -1,28 +1,27 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-    <title>Short Bitches</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-</head>
-<body>
+    <head>
+        <title>Short Bitches</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+        <!--[if lte IE 8]>
+        <script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="assets/css/main.css"/>
+        <!--[if lte IE 8]>
+        <link rel="stylesheet" href="assets/css/ie8.css"/><![endif]-->
+        <!--[if lte IE 9]>
+        <link rel="stylesheet" href="assets/css/ie9.css"/><![endif]-->
+    </head>
+    <body>
 
-<!-- Header -->
-<header id="header">
-    <h1 class="logo">Short Bitches!</h1>
-    <p>Put your url to get a short one.
-    </p>
-</header>
+        <!-- Header -->
+        <header id="header">
+            <h1 class="logo">Short Bitches!</h1>
+            <p>Put your url to get a short one.
+            </p>
+        </header>
 
-<!-- Signup Form -->
-<form id="signup-form" method="post" action="/shorten">
-    <input type="email" name="email" id="email" placeholder="Tell us your url" />
-    <input type="submit" value="Short me" />
-</form>
+        <?=$this->section('content')?>
 
 <?php var_dump($_SESSION['urls']; ?>
 
@@ -39,5 +38,5 @@
     </ul>
 </footer>
 
-</body>
+    </body>
 </html>

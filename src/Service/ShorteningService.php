@@ -8,6 +8,7 @@ use App\ValueObject\Url;
  */
 class ShorteningService
 {
+    private $sha1;
 
     /**
      * @param Url $url
