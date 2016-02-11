@@ -15,6 +15,7 @@ class Shortening
      * @var Url
      */
     private $url;
+    /** @var  string */
     private $shortUrl;
 
     /**
