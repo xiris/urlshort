@@ -15,20 +15,30 @@ class Shortening
      * @var Url
      */
     private $url;
-
-    /** @var string */
     private $shortUrl;
+
+    /**
+     * Shortening constructor.
+     *
+     * @param Url $url
+     */
 
     public function __construct(Url $url)
     {
         $this->url = $url;
     }
 
+    /**
+     * @return mixed
+     */
     public function getShortUrl()
     {
         return $this->shortUrl;
     }
 
+    /**
+     * @param $shortUrl
+     */
     public function setShortUrl($shortUrl)
     {
         $this->shortUrl = $shortUrl;
@@ -37,14 +47,6 @@ class Shortening
     /** string */
     public function __toString()
     {
-        return $this->shortUrl;
-    }
-
-    private function generateHash($url)
-    {
-        session_start();
-        $this->shortUrl = sha1($url);
-        $_SESSION['urls'][] = $this->shortUrl;
         return $this->shortUrl;
     }
 }

@@ -9,8 +9,24 @@ use App\ValueObject\Url;
 class ShorteningService
 {
 
+    /**
+     * @param Url $url
+     * @return Url
+     */
     public function shorten(Url $url) : Url
     {
-        return $url;
+        return $this->generateHash($url);
+    }
+
+    /**
+     * @param $url
+     * @return string
+     */
+    private function generateHash($url) : string
+    {
+        session_start();
+        $this->sha1 = sha1($url);
+        $_SESSION['urls'][] = $this->sha1;
+        return $this->sha1;
     }
 }
