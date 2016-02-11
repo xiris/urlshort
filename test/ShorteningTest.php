@@ -1,7 +1,10 @@
 <?php
 
-require_once __DIR__ . '/../src/OriginalUrl.php';
-require_once __DIR__ . '/../src/Shortening.php';
+use App\Entity\Shortening;
+use App\ValueObject\Url;
+
+require_once __DIR__ . '/../src/ValueObject/Url.php';
+require_once __DIR__ . '/../src/Entity/Shortening.php';
 
 /**
  * Source code file for ${CLASS_NAME} test.
@@ -10,24 +13,31 @@ require_once __DIR__ . '/../src/Shortening.php';
  */
 class ShorteningTest extends PHPUnit_Framework_TestCase
 {
+    /** @var  Shortening */
+    private $shortening;
+
+    public function setUp()
+    {
+        $dbService = $this->getMockBuilder(DbService::class);
+
+        $originalUrl = new Url('google.com', $dbService);
+        $this->shortening = new Shortening($originalUrl);
+    }
     public function testCreation()
     {
-        $dbService = $this->getMockBuilder(ShorteningService::class);
-        $originalUrl = new Url('google.com', $dbService);
-        $shortening = new Shortening($originalUrl);
-
-        self::assertInstanceOf(Shortening::class, $shortening);
+        self::assertInstanceOf(Shortening::class, $this->shortening);
     }
 
     public function testHasShortUrl()
     {
-        $originalUrl = new Url('google.com');
-        $shortening = new Shortening($originalUrl);
-
-        $shortUrl = $shortening->getShortUrl();
-
-        self::assertStringStartsWith('urlbitches.com/', $shortUrl);
+        $this->shortening->setShortUrl('urlbitches.com/absd');
+        self::assertEquals('urlbitches.com/absd', $this->shortening->getShortUrl());
     }
 
+    public function testSetShortUrl()
+    {
+        $this->shortening->setShortUrl('urlbitches.com/absd');
 
+        self::assertEquals('urlbitches.com/absd', $this->shortening->getShortUrl());
+    }
 }
