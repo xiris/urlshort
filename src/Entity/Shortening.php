@@ -15,6 +15,7 @@ class Shortening
      * @var Url
      */
     private $url;
+    /** @var  string */
     private $shortUrl;
 
     /**
@@ -22,6 +23,7 @@ class Shortening
      *
      * @param Url $url
      */
+
     public function __construct(Url $url)
     {
         $this->url = $url;
