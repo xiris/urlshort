@@ -15,17 +15,29 @@ class Shortening
      * @var Url
      */
     private $url;
+    private $shortUrl;
 
+    /**
+     * Shortening constructor.
+     *
+     * @param Url $url
+     */
     public function __construct(Url $url)
     {
         $this->url = $url;
     }
 
+    /**
+     * @return mixed
+     */
     public function getShortUrl()
     {
         return $this->shortUrl;
     }
 
+    /**
+     * @param $shortUrl
+     */
     public function setShortUrl($shortUrl)
     {
         $this->shortUrl = $shortUrl;
