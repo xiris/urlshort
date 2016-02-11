@@ -1,0 +1,9 @@
+{
+  "name": "test first",
+  "require": {
+    "doctrine/doctrine-bundle": "1.6.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.2.4"
+  }
+}
