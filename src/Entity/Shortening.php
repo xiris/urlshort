@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\ValueObject\Url;
+
 /**
  * Source code file for Shortening.
  *
