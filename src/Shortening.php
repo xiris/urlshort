@@ -7,5 +7,18 @@
  */
 class Shortening
 {
+    /**
+     * @var OriginalUrl
+     */
+    private $url;
 
+    public function __construct(OriginalUrl $url)
+    {
+        $this->url = $url;
+    }
+
+    public function getShortUrl()
+    {
+        return 'urlbitches.com/short';
+    }
 }
