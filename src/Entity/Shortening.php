@@ -16,6 +16,9 @@ class Shortening
      */
     private $url;
 
+    /** @var string */
+    private $shortUrl;
+
     public function __construct(Url $url)
     {
         $this->url = $url;
@@ -37,11 +40,11 @@ class Shortening
         return $this->shortUrl;
     }
 
-    private function generateHash($url) : string
+    private function generateHash($url)
     {
         session_start();
-        $this->sha1 = sha1($url);
-        $_SESSION['urls'][] = $this->sha1;
-        return $this->sha1;
+        $this->shortUrl = sha1($url);
+        $_SESSION['urls'][] = $this->shortUrl;
+        return $this->shortUrl;
     }
 }
