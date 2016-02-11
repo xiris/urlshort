@@ -1,12 +1,20 @@
 <?php
 
+use App\Middleware\Factory\GetShorteningMiddlewareFactory;
+use App\Middleware\Factory\PostShorteningMiddlewareFactory;
+use App\Middleware\GetShorteningMiddleware;
+use App\Middleware\PostShorteningMiddleware;
+use Zend\Expressive\Router\FastRouteRouter;
+use Zend\Expressive\Router\RouterInterface;
+
 return [
     'dependencies' => [
         'invokables' => [
-            Zend\Expressive\Router\RouterInterface::class => Zend\Expressive\Router\FastRouteRouter::class,
+            RouterInterface::class => FastRouteRouter::class,
         ],
         'factories' => [
-            App\Middleware\GetShorteningMiddleware::class => \App\Middleware\Factory\GetShorteningMiddlewareFactory::class,
+            GetShorteningMiddleware::class => GetShorteningMiddlewareFactory::class,
+            PostShorteningMiddleware::class => PostShorteningMiddlewareFactory::class,
         ],
     ],
 
@@ -14,8 +22,14 @@ return [
         [
             'name' => 'home',
             'path' => '/',
-            'middleware' => App\Middleware\GetShorteningMiddleware::class,
+            'middleware' => GetShorteningMiddleware::class,
             'allowed_methods' => ['GET'],
+        ],
+        [
+            'name' => 'shortened',
+            'path' => '/shorten',
+            'middleware' => PostShorteningMiddleware::class,
+            'allowed_methods' => ['POST'],
         ],
     ],
 ];
