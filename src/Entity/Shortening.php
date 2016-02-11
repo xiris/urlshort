@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\ValueObject\Url;
+
 /**
  * Source code file for Shortening.
  *
@@ -13,6 +15,8 @@ class Shortening
      * @var Url
      */
     private $url;
+    /** @var  string */
+    private $shortUrl = '';
 
     public function __construct(Url $url)
     {
@@ -21,6 +25,17 @@ class Shortening
 
     public function getShortUrl()
     {
-        return 'urlbitches.com/short';
+        return $this->shortUrl;
+    }
+
+    public function setShortUrl($shortUrl)
+    {
+        $this->shortUrl = $shortUrl;
+    }
+
+    /** string */
+    public function __toString()
+    {
+        return $this->shortUrl;
     }
 }
