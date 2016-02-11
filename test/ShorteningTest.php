@@ -12,8 +12,8 @@ class ShorteningTest extends PHPUnit_Framework_TestCase
 {
     public function testCreation()
     {
-        $dbService = $this->getMockBuilder(DbService::class);
-        $originalUrl = new OriginalUrl('google.com', $dbService);
+        $dbService = $this->getMockBuilder(ShorteningService::class);
+        $originalUrl = new Url('google.com', $dbService);
         $shortening = new Shortening($originalUrl);
 
         self::assertInstanceOf(Shortening::class, $shortening);
@@ -21,7 +21,7 @@ class ShorteningTest extends PHPUnit_Framework_TestCase
 
     public function testHasShortUrl()
     {
-        $originalUrl = new OriginalUrl('google.com');
+        $originalUrl = new Url('google.com');
         $shortening = new Shortening($originalUrl);
 
         $shortUrl = $shortening->getShortUrl();

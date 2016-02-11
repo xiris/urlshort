@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Entity;
+
 /**
  * Source code file for Shortening.
  *
@@ -8,11 +10,11 @@
 class Shortening
 {
     /**
-     * @var OriginalUrl
+     * @var Url
      */
     private $url;
 
-    public function __construct(OriginalUrl $url)
+    public function __construct(Url $url)
     {
         $this->url = $url;
     }

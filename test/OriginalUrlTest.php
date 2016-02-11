@@ -13,9 +13,9 @@ class OriginalUrlTest extends PHPUnit_Framework_TestCase
     {
         $this->validUrl = 'google.com';
 
-        $originalUrl = new OriginalUrl($this->validUrl);
+        $originalUrl = new Url($this->validUrl);
 
-        self::assertInstanceOf(OriginalUrl::class, $originalUrl);
+        self::assertInstanceOf(Url::class, $originalUrl);
     }
 
     public function testToString()
@@ -23,7 +23,7 @@ class OriginalUrlTest extends PHPUnit_Framework_TestCase
 
         $this->validUrl = 'google.com';
 
-        $originalUrl = new OriginalUrl($this->validUrl);
+        $originalUrl = new Url($this->validUrl);
 
         $this->assertEquals($this->validUrl, (string)$originalUrl);
     }

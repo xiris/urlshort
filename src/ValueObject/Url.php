@@ -1,11 +1,13 @@
 <?php
 
+namespace App\ValueObject;
+
 /**
  * Source code file for OriginalUrl.
  *
  * @author Serge Kukharev <sergei.kukhariev@carmudi.com>
  */
-class OriginalUrl
+class Url
 {
     /** @var  string */
     private $originalUrl;
